@@ -82,68 +82,90 @@
         <div id="rating-message" class="mt-2 hidden"></div>
     </section>
 
-    <section id="map" class="mt-5">
+ <section>
+    
         <div class="container">
-            <h1>Check the Weather</h1>
-            <p>Select a city to get the current weather:</p>
-    
-            <select id="city" name="city">
-                <option value="London,gb">London</option>
-                <option value="New York,us">New York</option>
-                <option value="Paris,fr">Paris</option>
-                <option value="Tokyo,jp">Tokyo</option>
-                <option value="Moscow,ru">Moscow</option>
+            <h1>Поиск отелей по странам</h1>
+            <p>Выберите страну и город для поиска отелей:</p>
+          
+            <!-- Выпадающий список для стран -->
+            <select id="country" name="country">
+              <option value="Russia">Россия</option>
+              <option value="USA">США</option>
+              <option value="France">Франция</option>
+              <option value="Germany">Германия</option>
             </select>
-    
-            <button onclick="getWeather()">Get Weather</button>
-    
-            <div id="weatherResult" class="weather-info" style="display: none;">
-                <h2>Weather in <span id="cityName"></span></h2>
-                <p>Temperature: <span id="temperature"></span> °C</p>
-                <p>Weather: <span id="weatherDescription"></span></p>
-                <p>Humidity: <span id="humidity"></span> %</p>
-                <img id="weatherIcon" src="" alt="weather icon" style="max-width: 50px;"/>
+          
+            <!-- Выпадающий список для городов -->
+            <select id="city" name="city">
+              <option value="Moscow">Москва</option>
+              <option value="New York">Нью-Йорк</option>
+              <option value="Paris">Париж</option>
+              <option value="Berlin">Берлин</option>
+            </select>
+          
+            <!-- Кнопка для запроса данных -->
+            <button onclick="getHotels()">Получить отели</button>
+          
+            <!-- Блок для отображения результатов -->
+            <div id="hotelResults">
+              <h2>Результаты поиска</h2>
+              <div id="hotelList"></div>
             </div>
-        </div>
-    
-        <script>
-            const apiKey = "284bf281feebce94d2102afa3cc3ee96"; // Ваш API-ключ
-    
-            function getWeather() {
-                const city = document.getElementById("city").value;
-    
-                if (!city) {
-                    alert("Please select a city.");
-                    return;
-                }
-    
-                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    
-                console.log(`Fetching weather for: ${url}`); // Добавим отладочную информацию
-    
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data); // Отладочная информация для всего ответа
-    
-                        // Проверяем, если город найден
-                        if (data.cod === 200) {
-                            document.getElementById("cityName").innerText = city.split(',')[0]; // Тільки місто
-                            document.getElementById("temperature").innerText = data.main.temp;
-                            document.getElementById("weatherDescription").innerText = data.weather[0].description;
-                            document.getElementById("humidity").innerText = data.main.humidity;
-                            document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-                            document.getElementById("weatherResult").style.display = "block";
-                        } else {
-                            alert("City not found! Please try again.");
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Error fetching weather data: ", error);
-                        alert("An error occurred while fetching the weather data. Please try again later.");
-                    });
-            }
-        </script>
+          </div>
+   <script>
+    // Ваш API ключ
+const apiKey = "feea3be4f82461cefd06442ef4307c07";
+
+// Функция для получения данных об отелях
+function getHotels() {
+  // Получаем выбранные страну и город
+  const country = document.getElementById("country").value;
+  const city = document.getElementById("city").value;
+  
+  // Формируем URL запроса для API
+  const url = https://api.hotellook.com/api/v2/cache/search.json?query=${city}&country=${country}&token=${apiKey};
+
+  // Отправляем запрос на API
+  fetch(url)
+    .then(response => response.json())  // Преобразуем ответ в JSON
+    .then(data => {
+      if (data.results && data.results.length > 0) {
+        displayHotels(data.results);  // Отображаем отели
+      } else {
+        alert("Отели не найдены для выбранного города и страны.");
+      }
+    })
+    .catch(error => {
+      console.error("Ошибка при загрузке данных:", error);
+    });
+}
+
+// Функция для отображения отелей на странице
+function displayHotels(hotels) {
+  const hotelList = document.getElementById("hotelList");
+  hotelList.innerHTML = "";  // Очищаем предыдущие результаты
+
+  // Перебираем отели и добавляем их в список
+  hotels.forEach(hotel => {
+    const hotelItem = document.createElement("div");
+    hotelItem.classList.add("hotel-item");
+
+    hotelItem.innerHTML = `
+      <h3>${hotel.name}</h3>
+      <p>Цена: ${hotel.price} ₽</p>
+      <p>Рейтинг: ${hotel.stars} звезд</p>
+      <p>${hotel.description}</p>
+      <img src="${hotel.photo_url}" alt="${hotel.name}" width="200">
+    `;
+
+    hotelList.appendChild(hotelItem);
+  });
+}
+
+   </script>          
+        
+        
     </section>
     
     
