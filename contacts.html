@@ -22,7 +22,7 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="tolkyn love (2).html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="2 стр.html">Destinations</a></li>
                             <li class="nav-item"><a class="nav-link" href="available-tours.html">Available Tours</a></li>
                             <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
@@ -83,29 +83,69 @@
     </section>
 
     <section id="map" class="mt-5">
-        <h2>Find Us Here</h2>
-        <div id="map"></div>
-    </style>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAM5fk-P4YNXqVtxFBN8UJVFdOK4kMsZDE&callback=initMap">
-    </script>
-    <div id="map"></div>
-
-    <script>
-      function initMap() {
-        var location = { lat: 51.0908, lng: 71.4181 };
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14, 
-          center: location 
-        });
-        var marker = new google.maps.Marker({
-          position: location, 
-          map: map, 
-          title: "My location" 
-        });
-      }
-    </script> 
+        <div class="container">
+            <h1>Check the Weather</h1>
+            <p>Select a city to get the current weather:</p>
+    
+            <select id="city" name="city">
+                <option value="London,gb">London</option>
+                <option value="New York,us">New York</option>
+                <option value="Paris,fr">Paris</option>
+                <option value="Tokyo,jp">Tokyo</option>
+                <option value="Moscow,ru">Moscow</option>
+            </select>
+    
+            <button onclick="getWeather()">Get Weather</button>
+    
+            <div id="weatherResult" class="weather-info" style="display: none;">
+                <h2>Weather in <span id="cityName"></span></h2>
+                <p>Temperature: <span id="temperature"></span> °C</p>
+                <p>Weather: <span id="weatherDescription"></span></p>
+                <p>Humidity: <span id="humidity"></span> %</p>
+                <img id="weatherIcon" src="" alt="weather icon" style="max-width: 50px;"/>
+            </div>
+        </div>
+    
+        <script>
+            const apiKey = "284bf281feebce94d2102afa3cc3ee96"; // Ваш API-ключ
+    
+            function getWeather() {
+                const city = document.getElementById("city").value;
+    
+                if (!city) {
+                    alert("Please select a city.");
+                    return;
+                }
+    
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    
+                console.log(`Fetching weather for: ${url}`); // Добавим отладочную информацию
+    
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data); // Отладочная информация для всего ответа
+    
+                        // Проверяем, если город найден
+                        if (data.cod === 200) {
+                            document.getElementById("cityName").innerText = city.split(',')[0]; // Тільки місто
+                            document.getElementById("temperature").innerText = data.main.temp;
+                            document.getElementById("weatherDescription").innerText = data.weather[0].description;
+                            document.getElementById("humidity").innerText = data.main.humidity;
+                            document.getElementById("weatherIcon").src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                            document.getElementById("weatherResult").style.display = "block";
+                        } else {
+                            alert("City not found! Please try again.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error fetching weather data: ", error);
+                        alert("An error occurred while fetching the weather data. Please try again later.");
+                    });
+            }
+        </script>
     </section>
+    
     
     <audio id="sound" src="звук.mp3"></audio>
 
