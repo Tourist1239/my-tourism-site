@@ -1,0 +1,26 @@
+.hidden {
+    display: none;
+}
+
+.star {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star.selected {
+    color: gold;
+}
+
+.time {
+    margin-top: 10px;
+    font-size: 16px;
+    color: green;
+}
+
+#extra-content {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+}

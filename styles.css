@@ -1,0 +1,56 @@
+
+.header-section {
+    background-color: #2c3e50;
+    color: white;
+}
+.booking-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.booking-section h2 {
+    color: #2c3e50;
+}
+.form-label {
+    font-weight: bold;
+}
+.modal-content {
+    border-radius: 10px;
+}
+.modal-header {
+    background-color: #2c3e50;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.list-group-item {
+    background-color: #f8f9fa;
+}
+.list-group-item:hover {
+    background-color: #e2e6ea;
+}
+.footer-section {
+    background-color: #2c3e50;
+    color: white;
+}.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.calendar-header button {
+    flex: 1;
+    margin: 0 10px;
+}
+.calendar-day {
+    cursor: pointer;
+}
+.carousel-container {
+    margin: 0 auto;
+    max-width: 800px;
+}
+.hotel-reviews-section {
+    margin-top: 50px;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Tours - Destinations</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+
+    <header class="p-4" style="background-color: #2c3e50;">
+        <div class="container text-center"> 
+            <a class="navbar-brand text-white" href="tolkyn love.html">Tourist Tour</a>
+            <h1 class="mb-4 text-white">Top Tourist Destinations</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="tolkyn love (2).html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="2 стр.html">Destinations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="available-tours.html">Available Tours</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contacts.html">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    
+    
+
+    <main class="container my-5">
+        <section id="popular-destinations">
+            <h2 class="text-center mb-4">Popular Destinations</h2>
+            <p class="text-center">Here are some of our most popular tourist destinations:</p>
+            <div class="row">
+                <!-- Existing Cards -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/03/1c/9c.jpg" class="card-img-top" alt="Paris, France">
+                        <div class="card-body">
+                            <h3 class="card-title">Paris, France</h3>
+                            <p class="card-text">The City of Light, known for its art, history, and romantic atmosphere.</p>
+                            <div class="star-rating" data-tour="paris">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <p class="rating-text hidden">You rated this tour <span id="paris-rating"></span> stars.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://media.digitalnomads.world/wp-content/uploads/2021/01/20120709/bali-for-digital-nomads.jpg" class="card-img-top" alt="Bali, Indonesia">
+                        <div class="card-body">
+                            <h3 class="card-title">Bali, Indonesia</h3>
+                            <p class="card-text">A tropical paradise known for its beaches, temples, and vibrant culture.</p>
+                            <div class="star-rating" data-tour="bali">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <p class="rating-text hidden">You rated this tour <span id="bali-rating"></span> stars.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg" class="card-img-top" alt="Kyoto, Japan">
+                        <div class="card-body">
+                            <h3 class="card-title">Kyoto, Japan</h3>
+                            <p class="card-text">A cultural hub with traditional temples, gardens, and geisha districts.</p>
+                            <div class="star-rating" data-tour="kyoto">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <p class="rating-text hidden">You rated this tour <span id="kyoto-rating"></span> stars.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- New Cards for Safari in Africa and Europe Tour -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://pircenter.org/wp-content/uploads/2022/11/1574673081_1-1.jpg" class="card-img-top" alt="Safari in Africa">
+                        <div class="card-body">
+                            <h3 class="card-title">Safari in Africa</h3>
+                            <p class="card-text">Experience the thrill of the wild with a safari adventure through Africa's stunning landscapes.</p>
+                            <div class="star-rating" data-tour="africa">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <p class="rating-text hidden">You rated this tour <span id="africa-rating"></span> stars.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://kriadera.kz/wp-content/uploads/2023/12/tur-po-evrope-3.jpg" class="card-img-top" alt="Europe Tour">
+                        <div class="card-body">
+                            <h3 class="card-title">Europe Tour</h3>
+                            <p class="card-text">Explore Europe's diverse culture, history, and iconic landmarks in one amazing journey.</p>
+                            <div class="star-rating" data-tour="europe">
+                                <span class="star" data-value="1">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="5">★</span>
+                            </div>
+                            <p class="rating-text hidden">You rated this tour <span id="europe-rating"></span> stars.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="destination-descriptions" class="mt-5">
+            <h2 class="text-center mb-4">Destination Descriptions</h2>
+            <dl class="row">
+                <dt class="col-sm-3">Paris, France</dt>
+                <dd class="col-sm-9">The City of Light, known for its art, history, and romantic atmosphere.</dd>
+    
+                <dt class="col-sm-3">Bali, Indonesia</dt>
+                <dd class="col-sm-9">A tropical paradise known for its beaches, temples, and vibrant culture.</dd>
+    
+                <dt class="col-sm-3">Kyoto, Japan</dt>
+                <dd class="col-sm-9">A cultural hub with traditional temples, gardens, and geisha districts.</dd>
+    
+                <dt class="col-sm-3">Safari in Africa</dt>
+                <dd class="col-sm-9">Experience the thrill of the wild with a safari adventure through Africa's stunning landscapes.</dd>
+    
+                <dt class="col-sm-3">Europe Tour</dt>
+                <dd class="col-sm-9">Explore Europe’s diverse culture, history, and iconic landmarks in one amazing journey.</dd>
+            </dl>
+        </section>
+    </main>
+    
+
+
+<footer class="bg-dark text-white text-center p-3">
+    <p>&copy; 2024 Tourist Tours | Created by: Zhenisova Saniya and Dilnaz Turdybekova</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-6dBj2UN5Lur0/jkXxRE9Mk8xI9xohJm1ANBwv1lrACvOd6APJ8VUwCfEH1TrEFxV" crossorigin="anonymous"></script>
+<script src="jsss.js"></script>
+</body>
+</html>
